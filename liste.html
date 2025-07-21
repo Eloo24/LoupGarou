@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste Infernale</title>
+    <link rel="stylesheet" href="./style_liste.css">
+</head>
+<body>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <h1>Liste Infernale</h1> <!-- Titre principal de la page -->
+
+        <!-- Section contenant le bouton de réinitialisation -->
+        <div class="button-container">
+            <button id="resetButton">Réinitialiser</button> <!-- Bouton pour réinitialiser les sélections -->
+        </div>
+
+        <br>
+
+        <!-- Tableau des différentes actions et joueurs associés -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Intitulé</th> <!-- Colonne pour l'intitulé de l'action -->
+                    <th>Joueur</th> <!-- Colonne pour sélectionner un joueur -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Lignes du tableau avec des actions spécifiques et des listes déroulantes pour les joueurs -->
+                <tr>
+                    <td>Immunité Diurne</td> <!-- Action : Immunité Diurne -->
+                    <td><select id="immunite-diurne">
+                        <!-- Liste déroulante pour l'Immunité Diurne -->
+                    </select></td>
+                </tr>
+            
+                <tr>
+                    <td>Immunité Nocturne</td> <!-- Action : Immunité Nocturne -->
+                    <td><select id="immunite-nocturne">
+                        <!-- Liste déroulante pour l'Immunité Nocturne -->
+                    </select></td>
+                </tr>
+            
+                <tr>
+                    <td>Le Vote Noir <br> 
+                        (Met un nom direct dans la boite après la fin de la journée)</td> <!-- Action : Le Vote Noir -->
+                    <td><select id="vote-noir">
+                        <!-- Liste déroulante pour le Vote Noir -->
+                    </select></td>
+                </tr>
+                
+                <tr>
+                    <td>Le Maître Maléfique <br>
+                        (Prend la liste au prochain jour)</td> <!-- Action : Le Maître Maléfique -->
+                    <td><select id="maitre-malefique">
+                        <!-- Liste déroulante pour le Maître Maléfique -->
+                    </select></td>
+                </tr>
+                
+                <tr>
+                    <td>Participe à un Défi pour gagner un Avantage</td> <!-- Action : Participer à un Défi -->
+                    <td><select id="defi-avantage">
+                        <!-- Liste déroulante pour participer à un défi -->
+                    </select></td>
+                </tr>
+            
+                <tr>
+                    <td>Le Vote x2 <br>
+                        (Une personne voit son vote doublé)</td> <!-- Action : Le Vote x2 -->
+                    <td><select id="vote-x2">
+                        <!-- Liste déroulante pour le Vote x2 -->
+                    </select></td>
+                </tr>
+                
+                <tr>
+                    <td>Le Muet <br>
+                        (Ne parle pas ni ne vote le jour et est immunisé la nuit)</td> <!-- Action : Le Muet -->
+                    <td><select id="muet">
+                        <!-- Liste déroulante pour le Muet -->
+                    </select></td>
+                </tr>   
+                
+                <tr>
+                    <td>Chasse aux Avantages</td> <!-- Action : Chasse aux Avantages -->
+                    <td><select id="chasse-avantages">
+                        <!-- Liste déroulante pour la Chasse aux Avantages -->
+                    </select></td>
+                </tr>
+
+                <!-- Identiques aux lignes précédentes pour différentes actions -->
+                <tr>
+                    <td>Chasse aux Avantages</td>
+                    <td><select id="chasse-avantages2">
+                        <!-- Liste déroulante pour une autre action Chasse aux Avantages -->
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <td>Chasse aux Avantages</td>
+                    <td><select id="chasse-avantages2">
+                        <!-- Liste déroulante pour une autre action Chasse aux Avantages -->
+                    </select></td>
+                </tr>
+            
+                <tr>
+                    <td>Le Sauveur <br>
+                        (Immunise une personne le jour)</td> <!-- Action : Le Sauveur -->
+                    <td><select id="sauveur">
+                        <!-- Liste déroulante pour Le Sauveur -->
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <td> Le Bénédictin <br>
+                        (Immunise une personne la nuit)</td> <!-- Action : Le Bénédictin -->
+                    <td><select id="benedictin"> 
+                        <!-- Liste déroulante pour Le Bénédictin -->
+                    </select></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Liste des joueurs
+        const joueurs = [
+            "Aurélie", "Bryan", "Flaura", "Jen", "Lola", "Mehdi",
+            "Pierre Yves", "Quentin", "Remi", "Solenne", "Valérien", "Victoria"
+        ];
+
+        // Fonction pour remplir les listes déroulantes avec les joueurs
+        function remplirListesDeroulantes() {
+            // Trouve tous les éléments select dans la page
+            const selects = document.querySelectorAll("select");
+
+            // Remplir chaque liste déroulante avec les joueurs
+            selects.forEach(select => {
+                joueurs.forEach(joueur => {
+                    const option = document.createElement('option'); // Crée une option pour chaque joueur
+                    option.value = joueur; // Définit la valeur de l'option comme le nom du joueur
+                    option.textContent = joueur; // Le texte affiché est le nom du joueur
+                    select.appendChild(option); // Ajoute l'option dans la liste déroulante
+                });
+            });
+        }
+
+        // Réinitialiser les sélections des listes déroulantes lorsque le bouton est cliqué
+        document.getElementById("resetButton").addEventListener("click", function() {
+            document.querySelectorAll("select").forEach(select => {
+                select.selectedIndex = 0;  // Réinitialise la sélection à la première option (aucune sélection)
+            });
+        });
+
+        // Appeler la fonction pour remplir les listes déroulantes au chargement de la page
+        remplirListesDeroulantes();
+    </script>
+
+</body>
+</html>

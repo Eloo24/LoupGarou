@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rôle Attribué</title>
+    <link rel="stylesheet" href="./style_role.css">
+</head>
+<body>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <h1>Rôle Attribué</h1> <!-- Titre principal de la page -->
+
+        <!-- Section contenant les boutons "Réinitialiser" et "Valider" -->
+        <div class="button-container">
+            <button id="resetButton">Réinitialiser</button> <!-- Bouton pour réinitialiser les entrées -->
+            <button id="saveButton">Valider</button> <!-- Bouton pour valider et sauvegarder les rôles -->
+        </div>
+     
+    <br>    
+
+    <!-- Tableau des rôles et des joueurs associés -->
+    <table>
+        <thead>
+            <tr>
+                <th>Personnage</th> <!-- Colonne pour le nom du personnage -->
+                <th>Joueur</th> <!-- Colonne pour le nom du joueur associé -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Lignes du tableau avec les rôles et des champs de texte pour les noms des joueurs -->
+            <!-- <tr>
+                <td>Emily Rose</td> 
+                <td><input type="text" id="input-1" placeholder="Nom du joueur"></td>
+            </tr> -->
+
+            <tr>
+                <td>Freddy Krueger</td> <!-- Personnage : Freddy Krueger -->
+                <td><input type="text" id="input-1" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+        
+            <tr>
+                <td>Hannibal Lecter</td> <!-- Personnage : Hannibal Lecter -->
+                <td><input type="text" id="input-2" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+            
+            <tr>
+                <td>Ed et Lorraine Warren</td> <!-- Personnage : Ed et Lorraine Warren -->
+                <td><input type="text" id="input-3" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+            
+            <!-- <tr>
+                <td>Ed et Lorraine Warren</td>
+                <td><input type="text" id="input-4" placeholder="Nom du joueur"></td>
+            </tr> -->
+        
+            <tr>
+                <td>Norman Bates</td> <!-- Personnage : Norman Bates -->
+                <td><input type="text" id="input-4" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+            
+            <tr>
+                <td>Annabelle</td> <!-- Personnage : Annabelle -->
+                <td><input type="text" id="input-5" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>   
+            
+            <tr>
+                <td>Ouija</td> <!-- Personnage : Ouija -->
+                <td><input type="text" id="input-6" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+        
+            <tr>
+                <td>Ted Bundy</td>
+                <td><input type="text" id="input-7" placeholder="Nom du joueur"></td>
+            </tr>
+        
+            <tr>
+                <td>Leatherface</td> <!-- Personnage : Leatherface -->
+                <td><input type="text" id="input-8" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+           
+            <tr>
+                <td>Slenderman</td> <!-- Personnage : Slenderman -->
+                <td><input type="text" id="input-9" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+
+            <!-- <tr>
+                <td>Chucky</td> 
+                <td><input type="text" id="input-11" placeholder="Nom du joueur"></td> 
+            </tr> -->
+
+            <tr>
+                <td>Slenderman</td> <!-- Personnage : Slenderman -->
+                <td><input type="text" id="input-10" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+
+            <tr>
+                <td>Metamorphe</td> <!-- Personnage : Metamorphe -->
+                <td><input type="text" id="input-11" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+
+            <tr>
+                <td>Metamorphe</td> <!-- Personnage : Metamorphe -->
+                <td><input type="text" id="input-12" placeholder="Nom du joueur"></td> <!-- Champ pour saisir le nom du joueur -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    // Fonction pour récupérer les rôles sauvegardés dans localStorage
+    function loadRoles() {
+        // Boucle pour récupérer et afficher chaque rôle sauvegardé
+        for (let i = 1; i <= 15; i++) {
+            let input = document.getElementById('input-' + i); // Trouve le champ de texte correspondant au rôle
+            let savedName = localStorage.getItem('role-' + i); // Vérifie si un nom est sauvegardé dans localStorage
+            if (savedName) {
+                input.value = savedName; // Si un nom est sauvegardé, l'afficher dans le champ
+            }
+        }
+    }
+
+    // Fonction pour sauvegarder les rôles dans localStorage
+    function saveRoles() {
+        // Boucle pour sauvegarder chaque nom de joueur dans localStorage
+        for (let i = 1; i <= 15; i++) {
+            let input = document.getElementById('input-' + i); // Trouve le champ de texte correspondant au rôle
+            let name = input.value; // Récupère la valeur (nom) saisie par l'utilisateur
+            localStorage.setItem('role-' + i, name); // Sauvegarde le nom dans localStorage
+        }
+    }
+
+    // Fonction pour réinitialiser les champs de texte
+    document.getElementById("resetButton").addEventListener("click", function() {
+        // Sélectionne tous les champs de texte et les vide
+        document.querySelectorAll("td input").forEach(input => input.value = "");
+        localStorage.clear(); // Efface aussi les données sauvegardées dans localStorage
+    });
+
+    // Ajouter un événement pour le bouton "Valider" pour sauvegarder les rôles
+    document.getElementById("saveButton").addEventListener("click", function() {
+        saveRoles(); // Sauvegarde les rôles dans localStorage
+    });
+
+    // Charger les rôles sauvegardés lorsque la page est chargée
+    window.onload = function() {
+        loadRoles(); // Charge les rôles sauvegardés et les affiche dans les champs de texte
+    };
+
+</script>
+
+</body>
+</html>

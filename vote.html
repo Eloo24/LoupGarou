@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loup Garou - Votes</title>
+    <link rel="stylesheet" href="./style_vote.css"> <!-- Lien vers la feuille de style externe -->
+</head>
+<body>
+
+    <!-- Section des joueurs où la liste des joueurs sera affichée -->
+    <div class="container" id="players"></div>
+
+    <!-- Icônes pour afficher les résultats, réinitialiser et déco -->
+    <img id="showResultsIcon" src="./Résultats.png" alt="Loup-garou Votes"> <!-- Icône pour afficher les résultats -->
+    <img id="resetIcon" src="./Réinitialiser.png" alt="Réinitialiser"> <!-- Icône pour réinitialiser le vote -->
+    <img id="deco" src="./Déco.png" alt="Déco"> <!-- Icône pour déco -->
+
+    <!-- Pop-up de confirmation du vote -->
+    <div class="popup-overlay" id="popupOverlay"></div> <!-- Fond opaque de la pop-up -->
+    <div class="vote-popup" id="votePopup">
+        <p id="voteMessage">✅ Votre vote a été pris en compte !</p> <!-- Message de confirmation après un vote -->
+        <button class="popup-btn" onclick="closePopup()">OK</button> <!-- Bouton pour fermer la pop-up -->
+    </div>
+
+    <!-- Pop-up pour afficher les résultats des votes par joueur -->
+    <div class="results-popup" id="resultsPopup">
+        <h2>Résultats des Votes</h2>
+        <ul id="resultsList"></ul> <!-- Liste des résultats des votes -->
+        <button class="popup-btn" onclick="showTotalResults()">Résultats Totaux</button> <!-- Bouton pour afficher les résultats totaux -->
+    </div>
+
+    <!-- Pop-up pour afficher les résultats totaux -->
+    <div class="total-results-popup" id="totalResultsPopup">
+        <h2>Résultats Totaux</h2>
+        <ul id="totalResultsList"></ul> <!-- Liste des résultats totaux -->
+        <button class="popup-btn" onclick="closeTotalResults()">Fermer</button> <!-- Bouton pour fermer la pop-up des résultats totaux -->
+    </div>
+
+    <!-- Pop-up de confirmation de retrait de vote -->
+    <div class="popup-overlay" id="popupOverlay"></div> <!-- Fond opaque de la pop-up -->
+    <div class="remove-vote-modal" id="removeVoteModal">
+        <h3>Confirmer le retrait du vote</h3>
+        <p>Êtes-vous sûr de vouloir retirer un vote pour <strong id="confirmPlayerName"></strong> ?</p> <!-- Message confirmant le retrait du vote pour un joueur -->
+        <button class="popup-btn" id="confirmRemoveVoteBtn" onclick="removeVote()">Oui, retirer le vote</button> <!-- Bouton pour retirer le vote -->
+        <button class="popup-btn" onclick="closeRemoveVoteModal()">Annuler</button> <!-- Bouton pour annuler le retrait -->
+    </div>
+
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="script_vote.js"></script>
+
+</body>
+</html>

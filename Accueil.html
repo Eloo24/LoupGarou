@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <title>Loup Garou</title>
+    <link rel="stylesheet" href="./Accueil.css">
+    <script>
+        // Fonction qui affiche la boîte de dialogue pour entrer le mot de passe
+        function demanderMotDePasse() {
+            let modal = document.getElementById("passwordModal"); // Récupère l'élément modal
+            modal.style.display = "block"; // Affiche la boîte de dialogue en modifiant son style
+        }
+
+        // Fonction pour vérifier le mot de passe entré par l'utilisateur
+        function verifierMotDePasse() {
+            let motDePasse = document.getElementById("passwordInput").value; // Récupère le mot de passe saisi
+            let hash = btoa(motDePasse); // Encode le mot de passe en base64 pour la comparaison
+
+            // Comparaison avec le mot de passe encodé (ici "TG91cEdhcm91MjU=" correspond à un mot de passe encodé)
+            if (hash === "TG91cEdhcm91MjU=") {
+                window.open("./Rôle/index.html", "_blank"); // Ouvre la page du rôle dans un nouvel onglet
+                fermerModal(); // Ferme la boîte de dialogue
+            } else {
+                alert("Mot de passe incorrect !"); // Affiche une alerte si le mot de passe est incorrect
+            }
+        }
+
+        // Fonction qui ferme la boîte de dialogue et réinitialise le champ de mot de passe
+        function fermerModal() {
+            document.getElementById("passwordModal").style.display = "none"; // Cache la boîte de dialogue
+            document.getElementById("passwordInput").value = ""; // Vide le champ de mot de passe
+        }
+    </script>
+</head>
+<body>
+    <!-- Menu de navigation avec plusieurs liens -->
+    <div class="menu">
+        <a href="./VoteLoup/index.html" target="_blank">Vote</a> <!-- Lien vers la page de vote -->
+        <a href="./Liste Infernale/liste.html" target="_blank">Liste Infernale</a> <!-- Lien vers la page de la liste infernale -->
+        <a href="./GestionImmu/index.html" target="_blank">Immunité</a> <!-- Lien vers la page d'immunité -->
+        <a href="#" onclick="demanderMotDePasse(); return false;" target="_blank">Rôle Attribué</a> <!-- Lien pour ouvrir la boîte de dialogue de mot de passe -->
+        <a href="./Tirage/tirage.html" target="_blank">Tirage au sort</a>
+    </div>
+
+    <!-- Boîte de dialogue modale pour entrer le mot de passe -->
+    <div id="passwordModal" class="modal">
+        <h2>Entrez le mot de passe</h2> <!-- Titre de la boîte de dialogue -->
+        <input type="password" id="passwordInput" placeholder="Mot de passe"> <!-- Champ pour saisir le mot de passe -->
+        <br>
+        <button onclick="verifierMotDePasse()">Valider</button> <!-- Bouton pour valider le mot de passe -->
+        <button onclick="fermerModal()">Annuler</button> <!-- Bouton pour fermer la boîte de dialogue sans rien faire -->
+    </div>
+</body>
+</html>

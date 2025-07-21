@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loup Garou - Immunités</title>
+    <link rel="stylesheet" href="./style_immu.css">
+</head>
+<body>
+
+    <!-- Conteneur principal contenant l'image du logo -->
+    <div id="container">
+        <img id="logo" src="./Immu.png" alt="Immu"> <!-- Affiche l'image du logo -->
+    </div>
+
+    <!-- Section des tableaux pour afficher les joueurs -->
+    <div id="tableaux">
+        <!-- Tableau pour afficher les cycles d'immunité pour un premier groupe -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du joueur</th> <!-- Colonne pour afficher le nom du joueur -->
+                </tr>
+            </thead>
+            <tbody id="table-body-1">
+            </tbody>
+        </table>
+
+        <br>
+
+        <!-- Tableau pour afficher les cycles d'immunité pour un deuxième groupe -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du joueur</th> <!-- Colonne pour afficher le nom du joueur -->
+                </tr>
+            </thead>
+            <tbody id="table-body-2">
+            </tbody>
+        </table>
+
+        <br>
+
+        <!-- Tableau pour afficher les cycles d'immunité pour un troisième groupe -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du joueur</th> <!-- Colonne pour afficher le nom du joueur -->
+                </tr>
+            </thead>
+            <tbody id="table-body-3">
+            </tbody>
+        </table>
+
+        <!-- Tableau pour afficher les cycles d'immunité pour un quatrième groupe -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du joueur</th> 
+                </tr>
+            </thead>
+            <tbody id="table-body-4">
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <script>
+        // Liste des joueurs
+        let joueurs = [
+            { nom: "Aurélie" },
+            { nom: "Bryan" },
+            { nom: "Flaura" },
+            { nom: "Jen" },
+            { nom: "Lola" },
+            { nom: "Mehdi" },
+            { nom: "Pierre Yves" },
+            { nom: "Quentin" },
+            { nom: "Remi" },
+            { nom: "Solenne" },
+            { nom: "Valérien" },
+            { nom: "Victoria" },
+        
+        ];
+
+        // Fonction pour générer les cycles "Nuit X" et "Jour X"
+        function genererCycles(nombreCycles, start = 1) {
+            let cycles = [];
+            // Crée une liste de cycles ("Nuit X", "Jour X") en fonction du nombre demandé
+            for (let i = start; i < start + nombreCycles; i++) {
+                cycles.push(`Nuit ${i}`, `Jour ${i}`);
+            }
+            return cycles;
+        }
+
+        // Fonction pour afficher les joueurs et les cycles dans un tableau spécifique
+        function afficherTableau(idTableBody, cycles) {
+            const tableBody = document.getElementById(idTableBody); // Récupère le corps du tableau par son ID
+            const tableHeader = tableBody.parentElement.querySelector('thead tr'); // Récupère l'entête du tableau
+            tableBody.innerHTML = ''; // Vide le corps du tableau avant de le remplir
+
+            // Ajoute les titres des cycles ("Nuit X", "Jour X") dans l'en-tête
+            cycles.forEach(cycle => {
+                let th = document.createElement('th'); // Crée une nouvelle cellule d'en-tête
+                th.textContent = cycle; // Met le texte du cycle dans la cellule
+                tableHeader.appendChild(th); // Ajoute la cellule à l'en-tête
+            });
+
+            // Remplir le tableau avec les joueurs et les cases à cocher
+            joueurs.forEach(joueur => {
+                const tr = document.createElement('tr'); // Crée une nouvelle ligne pour un joueur
+                tr.innerHTML = `<td>${joueur.nom}</td>`; // Ajoute une cellule avec le nom du joueur
+                cycles.forEach(() => {
+                    // Ajoute une case à cocher pour chaque cycle ("Nuit X", "Jour X")
+                    tr.innerHTML += `<td><input type="checkbox"></td>`;
+                });
+                tableBody.appendChild(tr); // Ajoute la ligne dans le corps du tableau
+            });
+        }
+
+        // Appelle la fonction afficherTableau pour remplir les trois tableaux avec les cycles appropriés
+        afficherTableau('table-body-1', genererCycles(5, 1)); // Premier tableau avec les cycles de Nuit 1 à Jour 5
+        afficherTableau('table-body-2', genererCycles(5, 6)); // Deuxième tableau avec les cycles de Nuit 6 à Jour 10
+        afficherTableau('table-body-3', genererCycles(5, 11)); // Troisième tableau avec les cycles de Nuit 11 à Jour 15
+        afficherTableau('table-body-4', genererCycles(5, 16));
+    </script>
+
+</body>
+</html>

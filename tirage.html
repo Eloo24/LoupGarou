@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tirage au sort</title>
+  <link rel="stylesheet" href="style_tirage.css">
+</head>
+<body>
+
+  <h1>Tirage au sort</h1>
+  <div id="drawnName">Clique sur le bouton pour tirer un nom</div>
+  <button onclick="drawName()">Tirer au sort</button>
+  <br/>
+  <button id="reset" onclick="resetDraw()">Réinitialiser</button>
+
+  <script>
+    const originalNames = [
+      "Lola", "Pierre-Yves", "Flaura", "Solenne", "Jen", "Aurélie", "Valérien", "Mehdi", "Bryan", "Victoria", "Quentin", "Remi"
+    ];
+
+    let remainingNames = [...originalNames];
+
+    function drawName() {
+      if (remainingNames.length === 0) {
+        document.getElementById("drawnName").textContent = "Tous les noms ont été tirés !";
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * remainingNames.length);
+      const name = remainingNames.splice(randomIndex, 1)[0];
+      document.getElementById("drawnName").textContent = name;
+    }
+
+    function resetDraw() {
+      remainingNames = [...originalNames];
+      document.getElementById("drawnName").textContent = "Tirage réinitialisé. Clique pour recommencer.";
+    }
+  </script>
+
+</body>
+</html>

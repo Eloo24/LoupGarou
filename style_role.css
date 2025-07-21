@@ -1,0 +1,99 @@
+/* Assurez-vous que tout le contenu de votre page est visible */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fond noir pour la page */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Conteneur pour le titre et le tableau */
+.container {
+    width: 80%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style du titre */
+h1 {
+    font-size: 40px;
+    color: #D32F2F; /* Rouge vif pour le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    font-weight: bold;
+}
+
+/* Style du tableau */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #000; /* Fond noir pour le tableau */
+    color: white; /* Texte blanc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des cellules du tableau */
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444; /* Bordure légèrement grise */
+}
+
+/* Entête du tableau */
+th {
+    background-color: #D32F2F; /* Fond rouge pour l'entête */
+    color: black; /* Texte noir pour l'entête */
+}
+
+/* Style des champs de saisie */
+td input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #333; /* Fond sombre pour les inputs */
+    color: white; /* Texte blanc dans les champs de saisie */
+    box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur */
+}
+
+/* Style de focus sur les champs de saisie */
+td input:focus {
+    border-color: #D32F2F; /* Bordure rouge lorsqu'un input est sélectionné */
+    outline: none;
+}
+
+/* Styles pour les lignes paires et impaires du tableau */
+tr:nth-child(even) {
+    background-color: #222; /* Fond noir plus clair pour les lignes paires */
+}
+
+tr:nth-child(odd) {
+    background-color: #111; /* Fond noir encore plus foncé pour les lignes impaires */
+}
+
+.button-container {
+    text-align: center; /* Centre le bouton */
+    margin-bottom: 20px; /* Ajoute de l'espace sous le bouton */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: #D32F2F; /* Rouge vif */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #a12222; /* Rouge foncé au survol */
+}
+
+

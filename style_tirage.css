@@ -1,0 +1,46 @@
+  body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 275px;
+    color: #fff; /* Pour un meilleur contraste si l'image est sombre */
+    background-color: black;
+  }
+
+  h1 {
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  #drawnName {
+    font-size: 2em;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    display: inline-block; /* ajuste la taille au texte */
+    margin: 20px 0;
+  }
+
+  button {
+    background-color: rgba(52, 152, 219, 0.9);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: rgba(41, 128, 185, 0.9);
+  }
+
+  #reset {
+    margin-top: 20px;
+    background-color: rgba(231, 76, 60, 0.9);
+  }
+
+  #reset:hover {
+    background-color: rgba(192, 57, 43, 0.9);
+  }
+

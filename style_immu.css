@@ -1,0 +1,136 @@
+/* Généralement, on commence par des styles de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fond noir */
+    color: #fff; /* Texte en blanc */
+}
+
+#container {
+    margin-bottom: 20px;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
+
+/* Container principal qui contient tout le contenu */
+.container {
+    width: 90%; /* Largeur de la page avec 10% de marge de chaque côté */
+    margin: 20px auto; /* Centrer le conteneur */
+    padding: 20px;
+    background-color: #333; /* Fond gris foncé pour la zone principale */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre subtile autour du conteneur */
+}
+
+/* Titre principal */
+h1 {
+    text-align: center;
+    color: #fff; /* Titre en blanc */
+}
+
+/* Formulaire d'ajout de joueur */
+.joueur-form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Mise en forme de l'input et des boutons du formulaire */
+.joueur-form input, .joueur-form select, .joueur-form button {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #555; /* Fond plus clair pour les champs de saisie */
+    border: 1px solid #777; /* Bordure plus claire */
+    color: #fff; /* Texte des champs en blanc */
+}
+
+/* Table principale */
+table {
+    width: 100%; /* La table prend toute la largeur disponible */
+    border-collapse: collapse; /* Évite les doubles bordures entre les cellules */
+    margin-top: 20px;
+}
+
+/* En-têtes du tableau */
+th {
+    background-color: red;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+/* Style des cellules du tableau */
+td {
+    padding: 10px 15px;
+    text-align: center;
+    border-bottom: 1px solid #555; /* Bordure de cellules plus discrète */
+}
+
+/* Espacement des cases à cocher */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Style pour la sélection de phase */
+.phase-selection {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.phase-selection select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+/* Style des boutons */
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boutons-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+/* Bouton réinitialiser avec une couleur différente */
+button:nth-of-type(2) {
+    background-color: #f44336;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #d32f2f;
+}
+
+.form-container {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+}
+
+#changer-phase-container {
+    text-align: center;
+    margin-top: 20px;
+}
